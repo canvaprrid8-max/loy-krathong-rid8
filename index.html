@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07182f">
+<title>มหกรรมลอยกระทงออนไลน์ 4 สายน้ำ | น้องมวลชล</title>
+<style>
+:root{--gold:#ffdc91;--navy:#07182f;--panel:#102c49;--line:#58738e}
+*{box-sizing:border-box}body{margin:0;background:#06162c;color:#fff;font-family:system-ui,-apple-system,"Noto Sans Thai",sans-serif}
+button,input,textarea{font:inherit}button{cursor:pointer}
+.wrap{max-width:1100px;margin:auto;padding:0 14px 30px}
+.hero{position:relative;text-align:center;padding:28px 12px 20px;overflow:hidden;background:radial-gradient(ellipse at 50% 100%,#285c80,#102b50 55%,#07152e)}
+.hero:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#fff 1px,transparent 1.5px);background-size:47px 49px;opacity:.3}
+.brand,.hero h1,.hero p{position:relative}.brand{color:var(--gold);font-size:13px;letter-spacing:1px}
+h1{margin:12px 0 4px;color:#ffe2a0;font-size:clamp(28px,6vw,46px);text-shadow:0 3px 18px #f6a72a66}
+.hero p{margin:4px;color:#dce9f3;font-size:14px}
+.moon{position:absolute;right:9%;top:24px;width:68px;height:68px;border-radius:50%;background:#fff0c4;box-shadow:0 0 42px #ffe8a3}
+nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+nav a{color:#ffe5aa;text-decoration:none;border:1px solid #8e805c;border-radius:20px;padding:7px 13px;font-size:12px}
+.section{background:linear-gradient(180deg,#102c49,#0a2039);border:1px solid #294967;border-radius:17px;padding:17px;margin:14px 0}
+h2{color:var(--gold);font-size:18px;margin:0 0 5px}.sub{color:#b8cadd;font-size:12px;margin:0 0 14px}
+.locations{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.loc{border:1px solid #607c98;background:#193956;color:white;border-radius:12px;padding:12px 8px;text-align:left;min-height:83px}
+.loc.active{border:2px solid var(--gold);background:#34516b;box-shadow:0 0 14px #ffd77a44}
+.loc b{display:block;font-size:12px}.loc small{font-size:11px;color:#c6d5e1}
+.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}
+.stage{position:relative;min-height:360px;border-radius:16px;overflow:hidden;border:1px solid #52718c;background:linear-gradient(#0c2448 0%,#294e70 40%,#17496a 41%,#08213e 100%)}
+.stage .stars{position:absolute;inset:0;background-image:radial-gradient(#fff 1px,transparent 1.5px);background-size:38px 41px;opacity:.45}
+.stage .moon2{position:absolute;right:12%;top:24px;width:54px;height:54px;border-radius:50%;background:#fff0c5;box-shadow:0 0 30px #ffe9a6}
+.mountains{position:absolute;top:100px;left:-5%;width:110%;height:110px;background:linear-gradient(150deg,transparent 23%,#18394d 24% 38%,transparent 39%),linear-gradient(210deg,transparent 24%,#24495b 25% 42%,transparent 43%);opacity:.95}
+.damline{position:absolute;right:0;top:151px;width:40%;height:18px;background:linear-gradient(#9c9c91,#4c626d);transform:skewY(-5deg);box-shadow:0 5px 12px #0008}
+.water{position:absolute;bottom:0;left:0;right:0;height:48%;overflow:hidden;background:linear-gradient(180deg,#28718a 0%,#14506f 36%,#092a49 100%)}
+.water:before,.water:after{content:"";position:absolute;left:-35%;width:170%;height:100%;top:0;pointer-events:none}
+.water:before{opacity:.5;background:repeating-linear-gradient(176deg,transparent 0 13px,#a4e4e5 14px,transparent 16px,#2e91a6 19px,transparent 23px);animation:riverFlow 7s linear infinite}
+.water:after{opacity:.28;background:repeating-linear-gradient(184deg,transparent 0 21px,#d2f5e8 22px,transparent 24px);animation:riverFlow 11s linear infinite reverse}
+@keyframes riverFlow{from{transform:translateX(-8%)}to{transform:translateX(8%)}}
+.floating-krathong{position:absolute;z-index:4;bottom:24%;left:-12%;font-size:27px;filter:drop-shadow(0 3px 3px #001a2b99);animation:floatAcross var(--duration,18s) linear infinite;animation-delay:var(--delay,0s);pointer-events:none}
+.floating-krathong:nth-child(2){font-size:23px;bottom:12%;--duration:23s;--delay:-8s}
+.floating-krathong:nth-child(3){font-size:31px;bottom:36%;--duration:27s;--delay:-17s}
+.floating-krathong:nth-child(4){font-size:20px;bottom:7%;--duration:20s;--delay:-12s}
+.floating-krathong:nth-child(5){font-size:25px;bottom:29%;--duration:25s;--delay:-4s}
+@keyframes floatAcross{0%{left:-12%;transform:translateY(0) rotate(-4deg) scale(.85);opacity:0}8%{opacity:1}45%{transform:translateY(-7px) rotate(3deg) scale(1)}90%{opacity:1}100%{left:110%;transform:translateY(4px) rotate(-3deg) scale(.88);opacity:0}}
+.pier{position:absolute;bottom:0;left:0;width:100%;height:24px;background:repeating-linear-gradient(90deg,#8e6740 0 45px,#b18a58 46px 51px);border-top:3px solid #e3bd7b}
+.mascot{position:absolute;z-index:5;bottom:22px;left:5%;width:min(42%,210px);transform-origin:50% 85%;filter:drop-shadow(0 7px 8px #0008);transition:left 3s cubic-bezier(.2,.7,.2,1),transform .7s}
+.mascot img{width:100%;height:auto;display:block}
+.mascot.walk{animation:bob .32s ease-in-out infinite alternate}
+.mascot.bow{transform:rotate(10deg) scale(.96)}
+.mascot.wave{animation:wave .7s ease-in-out 3}
+@keyframes bob{to{transform:translateY(-8px) rotate(2deg)}}
+@keyframes wave{0%,100%{transform:rotate(0)}50%{transform:rotate(-5deg) translateY(-7px)}}
+.mascot.at-water{left:55%}
+.krathong{position:absolute;z-index:7;bottom:28%;left:65%;font-size:36px;opacity:0;transform:translate(0,0);transition:opacity .7s,transform 4s linear}
+.krathong.float{opacity:1;transform:translate(180px,-12px) scale(.8)}
+.scene-label{position:absolute;z-index:3;top:12px;left:10px;right:10px;text-align:center;color:#ffedc5;font-size:13px;text-shadow:0 2px 5px #000}
+.formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.design{border:1px solid #617d96;background:#183956;color:white;border-radius:12px;padding:10px 3px}
+.design.active{border:2px solid var(--gold);background:#3a5369}
+.design span{display:block;font-size:29px}.design small{font-size:10px}
+label{display:block;color:#ffe0a0;font-size:13px;margin:13px 0 6px}
+input,textarea{width:100%;padding:11px;border:1px solid #b9a477;border-radius:10px;background:#fffaf0;color:#23374c}
+textarea{min-height:85px;resize:vertical}
+.primary{width:100%;border:0;border-radius:30px;padding:14px;margin-top:14px;background:linear-gradient(100deg,#e9ad45,#fff0b4,#e4a83a);font-weight:850;color:#57370a}
+.status{min-height:42px;text-align:center;padding:10px;color:#ffe5ad;font-size:12px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.stat{background:#183653;border:1px solid #526d88;border-radius:12px;padding:10px;text-align:center}
+.stat b{display:block;color:#ffdc91;font-size:23px}.stat small{font-size:10px;color:#d2deea}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.wish{padding:11px;border:1px solid #4e6b86;background:#173551;border-radius:11px;font-size:12px;overflow-wrap:anywhere}
+.wish b{color:#ffdc91}.empty{color:#adc0d1;font-size:12px;text-align:center;padding:15px}
+.qrrow{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+#qrcode{background:white;padding:9px;border-radius:9px;min-width:130px;min-height:130px;display:grid;place-items:center;color:#333;font-size:11px}
+.note{font-size:11px;color:#b7c9d8;line-height:1.7}
+footer{text-align:center;color:#a9bfd0;font-size:11px;padding:18px}
+@media(max-width:720px){.locations{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.stage{min-height:330px}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:390px){.gallery{grid-template-columns:1fr}.loc b{font-size:11px}}
+
+/* Enhanced location scenes and always-floating krathongs */
+.stage{isolation:isolate;transition:background 1s ease,filter .8s ease}
+.stage:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.0;transition:opacity .7s}
+.stage.scene-0:after{opacity:.30;background:radial-gradient(ellipse at 78% 18%,#ffe7a2 0,transparent 25%),linear-gradient(120deg,transparent 45%,#8bd7ff33),linear-gradient(0deg,#0b4770aa,transparent 60%)}
+.stage.scene-1:after{opacity:.38;background:radial-gradient(ellipse at 15% 28%,#ffd18a77,transparent 30%),radial-gradient(ellipse at 85% 40%,#fff0b877,transparent 25%),linear-gradient(110deg,transparent 40%,#e6b85a22);animation:glowPulse 4s ease-in-out infinite alternate}
+.stage.scene-2:after{opacity:.34;background:radial-gradient(ellipse at 20% 30%,#a2e8bb77,transparent 32%),radial-gradient(ellipse at 80% 20%,#c2f6df66,transparent 25%),linear-gradient(180deg,#173c5a22,#42a58a22);animation:fireflyGlow 5s ease-in-out infinite alternate}
+.stage.scene-3:after{opacity:.42;background:repeating-linear-gradient(115deg,transparent 0 34px,#e9a5ff20 35px 37px,transparent 38px 70px),radial-gradient(ellipse at 50% 18%,#ffd98b55,transparent 45%);animation:festivalGlow 7s linear infinite}
+@keyframes glowPulse{to{filter:brightness(1.35);opacity:.55}}
+@keyframes fireflyGlow{to{filter:hue-rotate(25deg) brightness(1.3)}}
+@keyframes festivalGlow{to{background-position:180px 0}}
+.stage.scene-1 .stars{animation:starTwinkle 2.2s ease-in-out infinite alternate}
+.stage.scene-2 .stars{background-size:27px 33px;animation:starTwinkle 3.5s ease-in-out infinite alternate}
+.stage.scene-3 .moon2{box-shadow:0 0 45px #ffb7ef,0 0 90px #e9a5ff66}
+@keyframes starTwinkle{to{opacity:.8;filter:brightness(1.8)}}
+.floating-krathong{z-index:4;white-space:nowrap;text-shadow:0 0 9px #ffd978aa}
+.floating-krathong:nth-child(2){animation-duration:22s;animation-delay:-13s}
+.floating-krathong:nth-child(3){animation-duration:26s;animation-delay:-7s}
+.floating-krathong:nth-child(4){animation-duration:19s;animation-delay:-16s}
+.floating-krathong:nth-child(5){animation-duration:24s;animation-delay:-2s}
+.floating-krathong:nth-child(6){font-size:22px;bottom:19%;--duration:29s;--delay:-21s}
+.floating-krathong:nth-child(7){font-size:28px;bottom:41%;--duration:31s;--delay:-11s}
+.floating-krathong:nth-child(8){font-size:19px;bottom:4%;--duration:21s;--delay:-17s}
+.mascot{left:3%;bottom:23px;width:min(29%,145px);z-index:6;transition:none;transform:none!important;animation:none!important;filter:drop-shadow(0 6px 8px #0009)}
+.mascot img{width:100%;height:auto;display:block;object-fit:contain}
+.mascot.walk,.mascot.bow,.mascot.wave,.mascot.at-water{left:3%;transform:none!important;animation:none!important}
+.krathong{z-index:8}
+/* Full-screen launch / prayer celebration */
+.celebration{position:fixed;inset:0;z-index:1000;display:none;place-items:center;overflow:hidden;padding:22px;background:radial-gradient(ellipse at 50% 28%,#244f76 0,#07172e 58%,#020914 100%);}
+.celebration.show{display:grid;animation:fadeIn .55s ease both}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.celebration .celebrate-moon{position:absolute;top:7%;right:12%;width:clamp(58px,10vw,105px);aspect-ratio:1;border-radius:50%;background:#fff1c8;box-shadow:0 0 35px #ffe6a5,0 0 100px #ffe6a566}
+.celebration-content{position:relative;z-index:3;width:min(760px,100%);max-height:90vh;overflow:auto;text-align:center;padding:clamp(20px,4vw,42px);border:1px solid #ffe2a088;border-radius:28px;background:linear-gradient(155deg,#173958dd,#07182feF);box-shadow:0 20px 90px #0009;backdrop-filter:blur(8px)}
+.celebration-kicker{color:#ffdf9b;letter-spacing:2px;font-size:12px}
+.celebration h2{font-size:clamp(25px,5vw,42px);margin:8px 0;color:#ffe8b2;text-shadow:0 0 20px #ffcb6a66}
+.celebration-krathong{font-size:clamp(85px,18vw,155px);line-height:1.35;display:inline-block;filter:drop-shadow(0 0 22px #ffd56d);animation:grandFloat 3s ease-in-out infinite}
+@keyframes grandFloat{0%,100%{transform:translateY(9px) rotate(-4deg) scale(1)}50%{transform:translateY(-13px) rotate(4deg) scale(1.08)}}
+.prayer{font-size:clamp(17px,3vw,25px);line-height:1.8;color:#fff7df;white-space:pre-wrap;overflow-wrap:anywhere;margin:14px auto 24px;max-width:620px}
+.back-place{border:1px solid #ffe3a5;border-radius:30px;padding:13px 25px;background:linear-gradient(100deg,#e6a63d,#fff0b6,#e6a63d);color:#51320b;font-weight:800;box-shadow:0 6px 25px #ffce6b44}
+.fireworks{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none}
+.firework{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--fw);box-shadow:0 0 8px 3px var(--fw),0 0 28px 8px color-mix(in srgb,var(--fw) 65%,transparent);animation:burst 1.8s ease-out infinite;animation-delay:var(--delay);}
+.firework:before,.firework:after{content:"";position:absolute;inset:-35px;border-radius:50%;background:repeating-conic-gradient(from 0deg,var(--fw) 0deg 2deg,transparent 3deg 30deg);mask:radial-gradient(circle,transparent 0 22%,#000 24% 28%,transparent 30%);}
+.firework:after{transform:rotate(15deg) scale(.7)}
+@keyframes burst{0%{transform:scale(.08);opacity:0}15%{opacity:1}70%{transform:scale(1.15);opacity:.9}100%{transform:scale(1.5);opacity:0}}
+@media(max-width:520px){.celebration-content{padding:20px 14px}.mascot{width:min(31%,118px);bottom:22px}.scene-label{font-size:11px}.floating-krathong{font-size:22px}}
+@media(prefers-reduced-motion:reduce){.floating-krathong,.celebration-krathong,.firework,.stage:after{animation-duration:20s!important}}
+
+
+/* Four distinct illustrated krathong designs + full-screen launch sequence */
+.design{min-height:132px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;transition:transform .2s,border-color .2s,background .2s}
+.design:active{transform:scale(.97)}
+.design-art{display:grid;place-items:center;width:100%;height:88px}
+.krathong-svg{width:100%;height:100%;max-width:145px;overflow:visible;filter:drop-shadow(0 5px 5px #0006)}
+.floating-krathong{width:64px;height:48px;font-size:initial;display:grid;place-items:center}
+.floating-krathong .krathong-svg{width:100%;height:100%}
+.krathong .krathong-svg{width:115px;height:85px}
+.celebration{padding:0;background:radial-gradient(ellipse at 50% 22%,#254f78 0,#07172e 58%,#020914 100%)}
+.celebration-content{width:100%;height:100%;max-height:none;max-width:none;overflow:auto;border:0;border-radius:0;padding:clamp(22px,5vw,60px);display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(180deg,#102d4cdd,#06172bf2);}
+.celebration-kicker{font-size:clamp(12px,2vw,17px)}
+.celebration h2{font-size:clamp(25px,5vw,48px);margin:14px 0;color:#ffe8b2}
+.celebration-krathong{width:clamp(190px,38vw,360px);height:clamp(150px,30vw,260px);display:grid;place-items:center;line-height:1;filter:drop-shadow(0 0 25px #ffd56d);animation:grandFloat 3s ease-in-out infinite;transform-origin:center}
+.celebration-krathong .krathong-svg{width:100%;height:100%;max-width:360px;filter:drop-shadow(0 0 20px #ffd56d)}
+.prayer{width:min(900px,100%);font-size:clamp(19px,3.2vw,34px);line-height:1.75;color:#fff8e9;padding:clamp(18px,4vw,38px);margin:12px 0 24px;border:1px solid #ffe2a077;border-radius:24px;background:#071a2b99;box-shadow:0 10px 45px #0005;overflow-wrap:anywhere;white-space:pre-wrap}
+.back-place{position:relative;z-index:5;border:1px solid #ffe3a5;background:linear-gradient(100deg,#e9ad45,#fff0b4,#e4a83a);color:#57370a;font-weight:850;border-radius:999px;padding:14px 30px;font-size:16px;box-shadow:0 7px 24px #0005}
+@keyframes grandFloat{0%,100%{transform:translateY(10px) scale(.94) rotate(-2deg)}50%{transform:translateY(-15px) scale(1.08) rotate(2deg)}}
+@media(max-width:520px){.celebration-content{padding:22px 14px}.prayer{font-size:20px}.design{min-height:120px}.design-art{height:78px}}
+
+
+/* Transparent mascot cutout + selected krathong launch journey */
+.mascot{width:min(25%,128px);bottom:20px;left:3%;background:transparent;filter:drop-shadow(0 7px 10px #00101c99)}
+.mascot img{background:transparent;mix-blend-mode:normal}
+.krathong{left:27%;bottom:27%;opacity:0;transform:translate(0,0) scale(.45);transition:none}
+.krathong.launching{opacity:1;animation:krathongJourney 2.65s cubic-bezier(.18,.68,.25,1) forwards}
+@keyframes krathongJourney{0%{opacity:0;transform:translate(0,10px) scale(.42) rotate(-8deg)}12%{opacity:1}45%{transform:translate(130px,-22px) scale(1.2) rotate(5deg)}100%{opacity:.1;transform:translate(340px,-38px) scale(.62) rotate(-3deg)}}
+.celebration-content{opacity:0;transform:scale(.97);transition:opacity .65s ease,transform .65s ease}
+.celebration.prayer-ready .celebration-content{opacity:1;transform:scale(1)}
+.celebration:not(.prayer-ready) .celebration-content{pointer-events:none}
+.celebration .fireworks{z-index:2}
+.celebration.prayer-ready .fireworks{opacity:.72;transition:opacity .8s}
+
+
+/* Location-specific animated environments */
+.stage.scene-0{background:linear-gradient(180deg,#071d3b 0%,#153e62 37%,#2b6680 48%,#0a3554 100%)}
+.stage.scene-0 .mountains{opacity:1;filter:drop-shadow(0 7px 5px #06172a99)}
+.stage.scene-0 .damline{opacity:.72}
+.stage.scene-0 .water{background:linear-gradient(180deg,#3d91b0 0%,#17617f 42%,#082b4a 100%)}
+.stage.scene-0:before{content:"";position:absolute;z-index:1;left:-8%;right:-8%;top:112px;height:90px;background:linear-gradient(155deg,transparent 20%,#0c3049 21% 37%,transparent 38%),linear-gradient(205deg,transparent 25%,#1d4a61 26% 44%,transparent 45%);opacity:.8;animation:shoreDrift 18s ease-in-out infinite alternate}
+.stage.scene-1{background:linear-gradient(180deg,#201b3c 0%,#59435a 35%,#9a795f 48%,#123d51 100%)}
+.stage.scene-1 .moon2{background:#ffe0a0;box-shadow:0 0 32px #ffcf76,0 0 75px #ffae4d88}
+.stage.scene-1 .mountains{top:112px;height:100px;background:linear-gradient(150deg,transparent 22%,#54434a 23% 43%,transparent 44%),linear-gradient(210deg,transparent 18%,#80614f 19% 40%,transparent 41%);opacity:.9}
+.stage.scene-1 .water{background:linear-gradient(180deg,#8a765d 0%,#32677a 35%,#0b344c 100%)}
+.stage.scene-1:before{content:"";position:absolute;z-index:1;top:0;left:48%;width:2px;height:55%;background:linear-gradient(180deg,#ffe8a8aa,transparent);box-shadow:0 0 24px 12px #ffc76b44;transform:rotate(12deg);animation:goldenBeam 4s ease-in-out infinite alternate}
+.stage.scene-2{background:linear-gradient(180deg,#071e34 0%,#174d5b 39%,#347c79 51%,#092e43 100%)}
+.stage.scene-2 .mountains{top:105px;height:120px;background:linear-gradient(155deg,transparent 22%,#153b43 23% 45%,transparent 46%),linear-gradient(205deg,transparent 20%,#1c514e 21% 46%,transparent 47%)}
+.stage.scene-2 .water{background:linear-gradient(180deg,#3c8c85 0%,#17646c 42%,#092d43 100%)}
+.stage.scene-2:before{content:"";position:absolute;z-index:4;left:0;right:0;bottom:43%;height:60px;background:repeating-linear-gradient(78deg,transparent 0 25px,#163f35 26px 29px,transparent 30px 44px);opacity:.8;clip-path:polygon(0 100%,0 58%,4% 35%,8% 100%,12% 48%,16% 100%,22% 20%,27% 100%,33% 45%,38% 100%,44% 24%,49% 100%,56% 40%,62% 100%,68% 15%,73% 100%,80% 42%,86% 100%,92% 28%,97% 100%,100% 50%,100% 100%)}
+.stage.scene-3{background:linear-gradient(180deg,#191638 0%,#49315d 35%,#745078 50%,#103a55 100%)}
+.stage.scene-3 .moon2{background:#ffe8c2;box-shadow:0 0 38px #ffc4ed,0 0 90px #bd8cff88}
+.stage.scene-3 .mountains{top:118px;height:115px;background:linear-gradient(180deg,transparent 0 30%,#33264a 31% 100%);clip-path:polygon(0 100%,0 50%,12% 50%,12% 30%,20% 30%,20% 50%,31% 50%,31% 18%,39% 18%,39% 50%,61% 50%,61% 18%,69% 18%,69% 50%,80% 50%,80% 30%,88% 30%,88% 50%,100% 50%,100% 100%);opacity:.95}
+.stage.scene-3 .damline{display:none}
+.stage.scene-3 .water{background:linear-gradient(180deg,#76608d 0%,#315b7d 42%,#0b2b49 100%)}
+.stage.scene-3:before{content:"";position:absolute;z-index:2;top:0;left:0;right:0;height:38px;background:radial-gradient(circle at 8% 50%,#ffe49a 0 3px,transparent 5px),radial-gradient(circle at 24% 50%,#ff8fc9 0 3px,transparent 5px),radial-gradient(circle at 40% 50%,#9eeaff 0 3px,transparent 5px),radial-gradient(circle at 56% 50%,#ffe49a 0 3px,transparent 5px),radial-gradient(circle at 72% 50%,#ff8fc9 0 3px,transparent 5px),radial-gradient(circle at 88% 50%,#9eeaff 0 3px,transparent 5px);filter:drop-shadow(0 0 7px #ffdb91);animation:festivalLights 2.5s ease-in-out infinite alternate}
+@keyframes shoreDrift{to{transform:translateX(12px)}}
+@keyframes goldenBeam{to{opacity:.45;transform:rotate(-8deg) scaleY(.9)}}
+@keyframes festivalLights{to{filter:brightness(1.7) drop-shadow(0 0 12px #ffdb91)}}
+/* Muan Chon walks to the water carrying the original krathong, then bows to release it */
+.mascot{width:min(25%,128px);left:3%;bottom:20px;transition:left 1.15s cubic-bezier(.2,.75,.25,1);will-change:left,transform}
+.mascot.approach{left:21%;animation:mascotSteps .28s ease-in-out infinite alternate}
+.mascot.release{left:21%;animation:mascotRelease .8s ease-in-out 1 forwards}
+@keyframes mascotSteps{from{transform:translateY(0) rotate(-1deg)}to{transform:translateY(-7px) rotate(2deg)}}
+@keyframes mascotRelease{0%{transform:translateY(0) rotate(0)}45%{transform:translateY(5px) rotate(5deg)}100%{transform:translateY(0) rotate(0)}}
+.mascot img{background:transparent!important;mix-blend-mode:normal;filter:drop-shadow(0 2px 3px #00101c55)}
+/* More dimensional, softly lit 3D-style krathong illustrations */
+.design-art{perspective:520px;position:relative;filter:drop-shadow(0 8px 7px #0007)}
+.design-art .krathong-svg{transform:perspective(420px) rotateX(13deg);filter:drop-shadow(0 4px 2px #fff5) drop-shadow(0 9px 6px #0008);transition:transform .35s,filter .35s}
+.design:hover .design-art .krathong-svg,.design.active .design-art .krathong-svg{transform:perspective(420px) rotateX(7deg) translateY(-3px) scale(1.06);filter:drop-shadow(0 0 8px #ffdc91aa) drop-shadow(0 10px 7px #0009)}
+.floating-krathong .krathong-svg,.krathong .krathong-svg,.celebration-krathong .krathong-svg{filter:drop-shadow(0 3px 2px #fff6) drop-shadow(0 8px 6px #0009)}
+.krathong.launching{z-index:9}
+@media(max-width:520px){.mascot{width:min(29%,116px)}.mascot.approach,.mascot.release{left:18%}}
+
+</style>
+</head>
+<body>
+<header class="hero"><div class="moon"></div><div class="brand">กรมชลประทาน • ร่วมสืบสานประเพณีไทย</div><h1>🪷 ลอยกระทงออนไลน์ 4 สายน้ำ</h1><p>มหกรรมลอยกระทงกับน้องมวลชล • คืนวันเพ็ญ เดือนสิบสอง</p><p>ร่วมอธิษฐานจาก 4 จังหวัด ลอยกระทงบนสายน้ำเดียวกัน</p></header>
+<div class="wrap">
+<nav><a href="#join">ร่วมลอยกระทง</a><a href="#gallery">แกลเลอรีคำอธิษฐาน</a><a href="#qr">ประชาสัมพันธ์</a></nav>
+<section class="section"><h2>📍 เลือกสถานที่ลอยกระทง</h2><p class="sub">เลือกหนึ่งใน 4 สถานที่เพื่อร่วมกิจกรรม</p><div class="locations" id="locations">
+<button class="loc active" data-i="0"><b>🏞️ อ่างเก็บน้ำห้วยยาง</b><small>ต.โคกกรวด อ.เมือง จ.นครราชสีมา</small></button>
+<button class="loc" data-i="1"><b>🌅 อ่างเก็บน้ำห้วยจระเข้มาก</b><small>ต.บ้านบัว อ.เมือง จ.บุรีรัมย์</small></button>
+<button class="loc" data-i="2"><b>🌳 อ่างเก็บน้ำห้วยเสนง</b><small>ต.เฉนียง อ.เมือง จ.สุรินทร์</small></button>
+<button class="loc" data-i="3"><b>🏛️ ลานโคปุระ • เกาะห้วยน้ำคำ</b><small>สวนเฉลิมพระเกียรติฯ 80 พรรษา อ.เมือง จ.ศรีสะเกษ</small></button>
+</div></section>
+<div class="grid" id="join">
+<section class="section"><h2>🌕 น้องมวลชลพาคุณไปลอยกระทง</h2><p class="sub" id="placeTitle">เขื่อนลำตะคอง จ.นครราชสีมา</p>
+<div class="stage"><div class="stars"></div><div class="moon2"></div><div class="mountains"></div><div class="damline"></div><div class="water">
+<div class="floating-krathong" aria-hidden="true">🪷🕯️</div>
+<div class="floating-krathong" aria-hidden="true">🌸🕯️</div>
+<div class="floating-krathong" aria-hidden="true">🪷🕯️</div>
+<div class="floating-krathong" aria-hidden="true">🌼🕯️</div>
+<div class="floating-krathong" aria-hidden="true">🪷🕯️</div>
+<div class="floating-krathong" aria-hidden="true">🌸🕯️</div>
+<div class="floating-krathong" aria-hidden="true">🏵️🕯️</div>
+<div class="floating-krathong" aria-hidden="true">🌼🕯️</div>
+</div><div class="scene-label" id="sceneLabel">แม่น้ำไหลเอื่อย • กระทงไทยลอยผ่านแสงจันทร์ • เขื่อนลำตะคอง</div>
+<div class="mascot" id="mascot"><img alt="น้องมวลชล มาสคอตกรมชลประทาน (พื้นหลังโปร่งใส)" src="maunchon_mascot.png"></div><div class="krathong" id="movingKrathong">🪷</div><div class="pier"></div></div>
+<div class="status" id="status" aria-live="polite">น้องมวลชลพร้อมแล้ว เลือกกระทงและเขียนคำอธิษฐานได้เลย</div>
+</section>
+<section class="section"><h2>🪷 เลือกกระทงและเขียนคำอธิษฐาน</h2><p class="sub">ร่วมกิจกรรมได้จากทุกจังหวัด</p>
+<div class="formgrid" id="designs">
+<button class="design active" data-d="0"><span class="design-art"></span><small>กระทงดอกบัว</small></button>
+<button class="design" data-d="1"><span class="design-art"></span><small>กระทงใบตอง</small></button>
+<button class="design" data-d="2"><span class="design-art"></span><small>กระทงดอกไม้สด</small></button>
+<button class="design" data-d="3"><span class="design-art"></span><small>กระทงประดับทอง</small></button>
+</div>
+<label for="name">ชื่อผู้ร่วมงาน (ไม่บังคับ)</label><input id="name" maxlength="45" placeholder="เช่น ผู้ร่วมงานจากนครราชสีมา">
+<label for="wish">คำอธิษฐาน (ไม่เกิน 200 ตัวอักษร)</label><textarea id="wish" maxlength="200" placeholder="ขอให้มีความสุข สุขภาพแข็งแรง และสมหวังในสิ่งที่ตั้งใจ..."></textarea>
+<button class="primary" id="launch">🪷 ให้น้องมวลชลพากระทงไปลอย</button>
+<p class="note">กรุณาไม่ใส่ข้อมูลส่วนตัวที่ละเอียดอ่อน คำอธิษฐานที่ส่งจะปรากฏในแกลเลอรีสาธารณะเมื่อเชื่อมต่อระบบแล้ว</p>
+</section></div>
+<section class="section"><h2>📊 ยอดกระทงที่ลอยแล้ว</h2><p class="sub">ยอดรวมจากทุกสถานที่ อัปเดตสดเมื่อเชื่อมต่อฐานข้อมูล</p><div class="stats" id="stats">
+<div class="stat"><b id="total">0</b><small>รวมทุกสถานที่</small></div><div class="stat"><b id="c0">0</b><small>นครราชสีมา</small></div><div class="stat"><b id="c1">0</b><small>บุรีรัมย์</small></div><div class="stat"><b id="c2">0</b><small>ศรีสะเกษ</small></div>
+</div><div class="stat" style="margin-top:8px"><b id="c3">0</b><small>สุรินทร์</small></div></section>
+<section class="section" id="gallery"><h2>💌 แกลเลอรีคำอธิษฐาน</h2><p class="sub">คำอธิษฐานจากผู้ร่วมกิจกรรมทั้ง 4 จังหวัด</p><div class="gallery" id="galleryItems"><div class="empty">ยังไม่มีคำอธิษฐาน — มาเป็นคนแรกกันนะ</div></div></section>
+<section class="section" id="qr"><h2>📱 ชวนเพื่อนร่วมลอยกระทง</h2><p class="sub">สร้าง QR Code จากลิงก์เว็บไซต์ที่เผยแพร่แล้ว</p><div class="qrrow"><div id="qrcode">ใส่ URL เว็บไซต์ก่อน</div><div style="flex:1;min-width:180px"><label for="publicUrl">URL เว็บไซต์ที่เผยแพร่</label><input id="publicUrl" placeholder="https://your-site.example"><button class="primary" id="makeQr">สร้าง QR Code</button><p class="note">QR Code จะใช้ได้เมื่อเว็บไซต์ถูกนำขึ้นโฮสต์และมี URL สาธารณะแล้ว</p></div></div></section>
+<section class="section"><h2>🔌 สถานะระบบออนไลน์</h2><p id="connection" class="note">โหมดทดลองในเครื่อง — ยังไม่ได้เชื่อมฐานข้อมูลกลาง ทุกคนจึงยังไม่เห็นข้อมูลข้ามอุปกรณ์</p></section>
+<footer>กรมชลประทาน • สำนักงานชลประทานที่ 8 นครราชสีมา<br>สืบสานประเพณีไทย ใส่ใจสิ่งแวดล้อม • เลือกกระทงจากวัสดุธรรมชาติ</footer>
+</div>
+
+<div class="celebration" id="celebration" role="dialog" aria-modal="true" aria-labelledby="celebrationTitle">
+  <div class="celebrate-moon"></div><div class="fireworks" id="fireworks" aria-hidden="true"></div>
+  <div class="celebration-content"><div class="celebration-kicker" id="celebrationPlace"></div><h2 id="celebrationTitle">คำอธิษฐานของคุณกำลังลอยสู่สายน้ำ</h2><div class="celebration-krathong" id="celebrationKrathong">🪷</div><div class="prayer" id="celebrationWish"></div><button class="back-place" id="backPlace">↩ กลับสู่สถานที่</button></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+(()=>{
+const $=id=>document.getElementById(id);
+const places=[
+'อ่างเก็บน้ำห้วยยาง ต.โคกกรวด อ.เมือง จ.นครราชสีมา',
+'อ่างเก็บน้ำห้วยจระเข้มาก ต.บ้านบัว อ.เมือง จ.บุรีรัมย์',
+'อ่างเก็บน้ำห้วยเสนง ต.เฉนียง อ.เมือง จ.สุรินทร์',
+'ลานโคปุระ สวนเฉลิมพระเกียรติพระบาทสมเด็จพระเจ้าอยู่หัว เฉลิมพระชนมพรรษา 80 พรรษา (เกาะห้วยน้ำคำ) อ.เมือง จ.ศรีสะเกษ'
+];
+const krathongSvgs=[
+`<svg class="krathong-svg" viewBox="0 0 180 120" role="img" aria-label="กระทงดอกบัว"><defs><linearGradient id="lotusBase" x2="0" y2="1"><stop stop-color="#4aa83e"/><stop offset="1" stop-color="#124c28"/></linearGradient><linearGradient id="pinkPetal" x2="0" y2="1"><stop stop-color="#fff0fa"/><stop offset=".55" stop-color="#ff83c4"/><stop offset="1" stop-color="#c92f83"/></linearGradient></defs><ellipse cx="90" cy="91" rx="76" ry="20" fill="#092b1c" opacity=".45"/><path d="M14 69 Q90 113 166 69 L151 94 Q90 119 29 94Z" fill="url(#lotusBase)" stroke="#9cdb69" stroke-width="3"/><g fill="#ffb4d9" stroke="#b52e79" stroke-width="1.4"><path d="M90 76 Q57 42 73 18 Q91 28 90 76"/><path d="M90 76 Q122 42 107 18 Q89 28 90 76"/><path d="M90 76 Q38 57 48 33 Q73 37 90 76"/><path d="M90 76 Q142 57 132 33 Q107 37 90 76"/><path d="M90 76 Q65 29 84 8 Q100 30 90 76"/></g><path d="M22 70Q90 96 158 70" fill="none" stroke="#d7ff9c" stroke-width="3"/><path d="M86 47V15" stroke="#ffe7a0" stroke-width="4"/><path d="M86 14Q76 3 86 0Q96 5 86 14" fill="#ffb52e"/></svg>`,
+`<svg class="krathong-svg" viewBox="0 0 180 120" role="img" aria-label="กระทงใบตอง"><defs><linearGradient id="leaf" x2="0" y2="1"><stop stop-color="#a9e35c"/><stop offset="1" stop-color="#17602d"/></linearGradient></defs><ellipse cx="90" cy="94" rx="76" ry="17" fill="#071f16" opacity=".4"/><path d="M14 70Q90 111 166 70L151 96Q90 120 29 96Z" fill="#18572c" stroke="#9fd45b" stroke-width="3"/><g fill="url(#leaf)" stroke="#d4ef8b" stroke-width="1.6"><path d="M20 70L45 26L70 78Z"/><path d="M42 79L66 14L88 86Z"/><path d="M72 84L91 8L110 84Z"/><path d="M94 84L119 14L139 79Z"/><path d="M116 78L145 27L160 70Z"/></g><g stroke="#e4f5a7" stroke-width="2" opacity=".85"><path d="M45 29L55 78M66 18L76 83M91 12V84M119 18L105 83M145 30L126 78"/></g><circle cx="90" cy="59" r="10" fill="#ffca38"/><path d="M90 49Q80 35 90 28Q100 36 90 49" fill="#fff1a8"/></svg>`,
+`<svg class="krathong-svg" viewBox="0 0 180 120" role="img" aria-label="กระทงดอกไม้สด"><defs><linearGradient id="freshBase" x2="0" y2="1"><stop stop-color="#d7a85a"/><stop offset="1" stop-color="#76502c"/></linearGradient></defs><ellipse cx="90" cy="95" rx="76" ry="17" fill="#071f16" opacity=".4"/><path d="M14 70Q90 111 166 70L151 96Q90 120 29 96Z" fill="url(#freshBase)" stroke="#f5d18a" stroke-width="3"/><g transform="translate(90 55)"><g fill="#fff4dc" stroke="#e5c9a2"><ellipse cy="-16" rx="8" ry="16"/><ellipse cy="-16" rx="8" ry="16" transform="rotate(45)"/><ellipse cy="-16" rx="8" ry="16" transform="rotate(90)"/><ellipse cy="-16" rx="8" ry="16" transform="rotate(135)"/></g><circle r="8" fill="#f6bd36"/></g><g fill="#ff91ae"><circle cx="49" cy="58" r="10"/><circle cx="131" cy="58" r="10"/><circle cx="69" cy="42" r="8"/><circle cx="111" cy="42" r="8"/></g><g fill="#ffe36b"><circle cx="49" cy="58" r="3"/><circle cx="131" cy="58" r="3"/><circle cx="69" cy="42" r="3"/><circle cx="111" cy="42" r="3"/></g><g fill="#fff"><circle cx="34" cy="69" r="4"/><circle cx="146" cy="69" r="4"/><circle cx="57" cy="38" r="4"/><circle cx="123" cy="38" r="4"/></g></svg>`,
+`<svg class="krathong-svg" viewBox="0 0 180 120" role="img" aria-label="กระทงประดับทอง"><defs><linearGradient id="goldBase" x2="0" y2="1"><stop stop-color="#fff0a6"/><stop offset=".45" stop-color="#d99a25"/><stop offset="1" stop-color="#70400e"/></linearGradient></defs><ellipse cx="90" cy="96" rx="76" ry="17" fill="#071f16" opacity=".4"/><path d="M14 69Q90 111 166 69L151 96Q90 120 29 96Z" fill="url(#goldBase)" stroke="#fff0a6" stroke-width="3"/><path d="M24 71Q90 98 156 71M31 83Q90 108 149 83" fill="none" stroke="#fff2b1" stroke-width="3"/><g fill="#ffe9a1" stroke="#9a5a12" stroke-width="1.5"><path d="M90 70L78 48L90 20L102 48Z"/><path d="M62 70L55 48L70 33L78 57Z"/><path d="M118 70L125 48L110 33L102 57Z"/></g><circle cx="90" cy="51" r="12" fill="#fff0a3" stroke="#9a5a12" stroke-width="3"/><circle cx="90" cy="51" r="5" fill="#39b9df"/><g fill="#fff6c9"><circle cx="39" cy="73" r="3"/><circle cx="57" cy="81" r="3"/><circle cx="123" cy="81" r="3"/><circle cx="141" cy="73" r="3"/></g><path d="M90 20V5" stroke="#fff0a3" stroke-width="4"/><path d="M90 5Q80 -3 90 -8Q100 -3 90 5" fill="#ffb52e"/></svg>`
+];const icons=['🪷','🌿','🌸','✨'];const fireworkPalettes=[['#ffdf75','#ff6b6b','#7ee7ff','#ffffff'],['#ffd166','#ff8c42','#fff1a8','#7af0d0'],['#9dffb0','#8be9fd','#f7a8ff','#fff5bd'],['#ff8bd1','#b69cff','#79e6ff','#ffe36e']];let place=0,design=0,busy=false,db=null,channel=null,rows=[];const stage=document.querySelector('.stage');
+function art(i){return krathongSvgs[i]||krathongSvgs[0];}function renderKrathongArt(){document.querySelectorAll('.design').forEach((b,i)=>b.querySelector('.design-art').innerHTML=art(i));document.querySelectorAll('.floating-krathong').forEach((el,i)=>el.innerHTML=art(i%4));$('movingKrathong').innerHTML=art(design); }
+const cfg={url:'https://oojdnjjamdtpwdrvynim.supabase.co',key:'sb_publishable_BZG3pdTpmqLtVeHmGnlIfA_1_Jxe0Al'};
+function render(){
+$('total').textContent=rows.length;
+places.forEach((_,i)=>{$('c'+i).textContent=rows.filter(r=>r.location_id===i).length});
+const sorted=[...rows].sort((a,b)=>new Date(b.created_at||0)-new Date(a.created_at||0)).slice(0,30);
+$('galleryItems').innerHTML=sorted.length?sorted.map(r=>`<article class="wish"><b>${esc(r.display_name||'ผู้ร่วมงาน')}</b><div>${esc(places[r.location_id]||'')}</div><div style="width:90px;height:58px;margin:5px 0">${art(Number(r.krathong_type)||0)}</div><div>${esc(r.wish||'ขอให้พบเจอแต่สิ่งดี ๆ')}</div></article>`).join(''):'<div class="empty">ยังไม่มีคำอธิษฐาน — มาเป็นคนแรกกันนะ</div>';
+}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function setPlaceScene(){stage.classList.remove('scene-0','scene-1','scene-2','scene-3');stage.classList.add('scene-'+place);const labels=[
+'อ่างเก็บน้ำท่ามกลางแนวเนินและแสงจันทร์ • ระลอกน้ำสีฟ้า',
+'ผืนน้ำกว้างและแสงสะท้อนสีทอง • บรรยากาศธรรมชาติยามค่ำคืน',
+'สายน้ำสงบใต้ท้องฟ้าค่ำ • ประกายหิ่งห้อยและหมู่ดาว',
+'แลนด์มาร์กลานโคปุระ • แสงประดับสวนและบรรยากาศงานเฉลิมฉลอง'
+];$('sceneLabel').textContent=labels[place]+' • '+places[place].split(' จ.')[0];}
+document.querySelectorAll('.loc').forEach(b=>b.onclick=()=>{if(busy)return;place=+b.dataset.i;document.querySelectorAll('.loc').forEach(x=>x.classList.toggle('active',x===b));$('placeTitle').textContent=places[place];setPlaceScene();});setPlaceScene();
+function showFireworks(){const box=$('fireworks'),colors=fireworkPalettes[place];box.innerHTML='';for(let i=0;i<12;i++){const f=document.createElement('span');f.className='firework';f.style.left=(8+Math.random()*84)+'%';f.style.top=(8+Math.random()*65)+'%';f.style.setProperty('--fw',colors[i%colors.length]);f.style.setProperty('--delay',(Math.random()*1.8)+'s');box.appendChild(f);}}
+let revealTimer=null;
+function showCelebration(record){
+  $('celebrationPlace').textContent='🪷 '+places[place]+' • ค่ำคืนแห่งความสุข';
+  $('celebrationKrathong').innerHTML=art(design);
+  $('celebrationWish').textContent=record.wish;
+  const overlay=$('celebration');
+  overlay.classList.remove('prayer-ready');
+  overlay.classList.add('show');
+  showFireworks();
+  // Fireworks celebrate first; then reveal the full-screen prayer.
+  clearTimeout(revealTimer);
+  revealTimer=setTimeout(()=>{overlay.classList.add('prayer-ready');$('backPlace').focus();},1650);
+}
+$('backPlace').onclick=()=>{
+  clearTimeout(revealTimer);
+  $('celebration').classList.remove('show','prayer-ready');
+  const mascot=$('mascot');mascot.classList.remove('approach','release');
+  $('launch').disabled=false;busy=false;
+};
+document.querySelectorAll('.design').forEach(b=>b.onclick=()=>{if(busy)return;design=+b.dataset.d;document.querySelectorAll('.design').forEach(x=>x.classList.toggle('active',x===b));$('movingKrathong').innerHTML=art(design);});
+async function connect(){
+if(cfg.url.includes('SUPABASE_')||cfg.key.includes('SUPABASE_'))return;
+try{db=window.supabase.createClient(cfg.url,cfg.key);const {data,error}=await db.from('krathongs').select('*').order('created_at',{ascending:false}).limit(300);if(error)throw error;rows=data||[];render();channel=db.channel('public-krathongs').on('postgres_changes',{event:'INSERT',schema:'public',table:'krathongs'},p=>{if(!rows.some(x=>x.id===p.new.id)){rows.unshift(p.new);render();}}).subscribe();$('connection').textContent='เชื่อมต่อฐานข้อมูลกลางแล้ว • รับข้อมูลกระทงใหม่แบบเรียลไทม์';}catch(e){$('connection').textContent='เชื่อมต่อไม่สำเร็จ: '+e.message+' • ตรวจสอบค่า Supabase และสิทธิ์ฐานข้อมูล';}
+}
+$('launch').onclick=async()=>{
+if(busy)return;
+busy=true;$('launch').disabled=true;
+const record={location_id:place,krathong_type:design,display_name:$('name').value.trim().slice(0,45)||'ผู้ร่วมงาน',wish:$('wish').value.trim().slice(0,200)||'ขอให้พบเจอแต่สิ่งดี ๆ'};
+$('status').textContent='กระทงที่คุณเลือกกำลังขยายใหญ่ และลอยออกไปบนสายน้ำ...';
+const k=$('movingKrathong');
+const mascot=$('mascot');
+mascot.classList.remove('approach','release');
+k.innerHTML=art(design);
+k.classList.remove('float','launching');
+void mascot.offsetWidth;
+mascot.classList.add('approach');
+$('status').textContent='น้องมวลชลกำลังเดินถือกระทงไปยังริมฝั่ง...';
+await new Promise(r=>setTimeout(r,1150));
+mascot.classList.remove('approach');
+mascot.classList.add('release');
+$('status').textContent='น้องมวลชลค่อย ๆ วางกระทงลงบนผิวน้ำ...';
+await new Promise(r=>setTimeout(r,500));
+void k.offsetWidth;
+k.classList.add('launching');
+await new Promise(r=>setTimeout(r,2650));
+k.classList.remove('launching');
+mascot.classList.remove('release');
+if(db){
+  const {data,error}=await db.from('krathongs').insert(record).select().single();
+  if(error){$('status').textContent='กระทงลอยสำเร็จ แต่บันทึกออนไลน์ไม่สำเร็จ: '+error.message;}
+  else{rows.unshift(data);render();}
+}else{
+  rows.unshift({...record,id:'local-'+Date.now(),created_at:new Date().toISOString()});render();
+}
+$('status').textContent='✨ พลุเฉลิมฉลองให้กับคำอธิษฐานของคุณ';
+showCelebration(record);
+};
+$('makeQr').onclick=()=>{const url=$('publicUrl').value.trim();$('qrcode').innerHTML='';if(!/^https?:\/\/.+/i.test(url)){$('qrcode').textContent='กรุณาใส่ URL ที่ถูกต้อง';return;}if(!window.QRCode){$('qrcode').textContent='โหลดระบบ QR ไม่สำเร็จ';return;}new QRCode($('qrcode'),{text:url,width:130,height:130,correctLevel:QRCode.CorrectLevel.M});};
+renderKrathongArt();render();connect();
+})();
+</script>
+</body></html>
